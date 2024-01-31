@@ -1,6 +1,8 @@
 ## Rest API microservice example written in Fiber Go.
 This is example Fiber service to demonstrate microservice written in Go.
 
+In a nutshell service stores data (blueprints) to Mysql database and caches them to Redis.
+
 ## Available routes:
 - `GET /blueprints/:id` Get blueprint by ID.
 - `GET /blueprints` - List blueprints (offset pagination).
