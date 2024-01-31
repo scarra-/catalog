@@ -24,3 +24,6 @@ Application has 3 components:
 
 ## Helm chart
 There is helm chart in `./deployments` folder but for now it only works with minikube.
+
+## Postman
+<img width="2040" alt="Screenshot 2024-01-31 at 19 56 01" src="https://github.com/scarra-/catalog/assets/10938706/6a7b5d68-89fd-4d51-85e4-62c39c24cdb6">
