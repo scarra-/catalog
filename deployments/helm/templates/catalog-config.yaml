@@ -1,0 +1,11 @@
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: catalog-config-file
+
+# data:
+#   .env: |
+#     ENV="production"
+#     REDIS_HOST="redis"
+#     REDIS_PORT="6379"
+#     REDIS_PASSWORD=""

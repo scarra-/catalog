@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: aadejanovs/catalog
+  tag: latest
+  pullPolicy: Always
+
+catalog:
+  host: api.mediaview.io
+
+dashboard:
+  host: k8s.mediaview.io
+
+pod:
+  labels:
+    app: catalog
+
+
+imagePullSecrets: []

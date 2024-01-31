@@ -1,0 +1,47 @@
+---
+version: "2"
+services:
+  catalog:
+    container_name: catalog
+    build:
+      context: ../../
+      dockerfile: ./build/docker/Dockerfile
+    depends_on:
+      - redis
+      - mysql
+    env_file:
+      - ./../../.env
+    ports:
+      - 80:80
+    volumes:
+      - ../../:/go/src/catalog
+    links:
+      - redis
+    environment:
+      - GO111MODULE=on
+      - MYSQL_DSN=mysql://root:root@tcp(mysql:3306)/catalog?parseTime=true
+    networks:
+      default:
+        aliases:
+          - catalog.test
+  redis:
+    container_name: redis
+    image: redis
+    ports:
+      - 6379:6379
+  mysql:
+    container_name: mysql
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: catalog
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - ./../../var/db.sql:/db.sql
+    networks:
+      default:
+        aliases:
+          - catalog-mysql.test
+networks:
+  default: null
